@@ -3,11 +3,19 @@ import styled from "styled-components/native";
 import { Text, StyleSheet } from "react-native";
 import { Card } from "react-native-paper";
 
-
-
-const Title = styled.Text`
-  padding: 5px;
+const RestaurantCard = styled(Card)`
+  background-color: ${(props) => props.theme.colors.bg.secondary}
 `;
+
+const RestaurantCardCover = styled(Card.Cover)`
+  padding: ${(props) => props.theme.space[3]};
+  background-color: ${(props) => props.theme.colors.bg.primary};
+`;
+
+const Title = styled(Text)`
+  padding: ${(props) => props.theme.space[3]};
+  color: ${(props) => props.theme.colors.ui.success};
+  `;
 
 
 export const RestaurantInfoCard = ({ restaurant = {} }) => {
@@ -19,24 +27,17 @@ export const RestaurantInfoCard = ({ restaurant = {} }) => {
             "https://www.foodiesfeed.com/wp-content/uploads/2019/02/messy-pizza-on-a-black-table.jpg",
         ],
         address = "100 some random street in the Milky Way",
-        isOpenNow = "Open 8:00 AM - 9:00 PM",
+        isOpenNow = "Open @ 8:00 AM - 10:00 PM",
         rating = 4,
         isClosedTemporarily,
+      
+        
     } = restaurant;
 
     return (
-        <Card elevation={5} style={styles.card}>
-          <Card.Cover key={name} style={styles.cover} source={{ uri: photos[0] }} />
+        <RestaurantCard elevation={5}>
+          <RestaurantCardCover key={name} source={{ uri: photos[0] }} />
             <Title>{name}</Title>
-            <Title>{address}</Title>
-            <Title>{isOpenNow}</Title>
-        </Card>
+        </RestaurantCard>
       );
 };
-
-const styles = StyleSheet.create({
-    card: { backgroundColor: "white" },
-    cover: { padding: 20, backgroundColor: "white" },
-    // title: { padding: 16 },
-  });
-    
