@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
     list: {
       flex: 1,
       padding: 15,
-      backgroundColor: "orange"
+      backgroundColor: "pink"
     }
   
   });

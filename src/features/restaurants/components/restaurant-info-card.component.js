@@ -1,25 +1,25 @@
 import React from "react";
-//import styled from "styled-components/native";
+import styled from "styled-components/native";
 import { Text, StyleSheet } from "react-native";
 import { Card } from "react-native-paper";
 
 
 
-// const Title = styled.Text`
-//   padding: 16px;
-// `;
+const Title = styled.Text`
+  padding: 5px;
+`;
 
 
 export const RestaurantInfoCard = ({ restaurant = {} }) => {
 
     const {
-        name = "Pizza Restaurant",
+        name = "Kiko's Pizza Restaurant",
         icon,
         photos = [
             "https://www.foodiesfeed.com/wp-content/uploads/2019/02/messy-pizza-on-a-black-table.jpg",
         ],
-        address = "100 some random street",
-        isOpenNow = "8:00 AM - 9:00 PM",
+        address = "100 some random street in the Milky Way",
+        isOpenNow = "Open 8:00 AM - 9:00 PM",
         rating = 4,
         isClosedTemporarily,
     } = restaurant;
@@ -27,7 +27,9 @@ export const RestaurantInfoCard = ({ restaurant = {} }) => {
     return (
         <Card elevation={5} style={styles.card}>
           <Card.Cover key={name} style={styles.cover} source={{ uri: photos[0] }} />
-          <Text style={styles.title}>{name}</Text>
+            <Title>{name}</Title>
+            <Title>{address}</Title>
+            <Title>{isOpenNow}</Title>
         </Card>
       );
 };
@@ -35,6 +37,6 @@ export const RestaurantInfoCard = ({ restaurant = {} }) => {
 const styles = StyleSheet.create({
     card: { backgroundColor: "white" },
     cover: { padding: 20, backgroundColor: "white" },
-    title: { padding: 16 },
+    // title: { padding: 16 },
   });
     
