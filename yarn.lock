@@ -1262,6 +1262,16 @@
   dependencies:
     levn "^0.4.1"
 
+"@expo-google-fonts/lato@^0.2.3":
+  version "0.2.3"
+  resolved "https://registry.npmjs.org/@expo-google-fonts/lato/-/lato-0.2.3.tgz"
+  integrity sha512-X56FEZn2GNYtI2/UqyOps7TShuDwi/k9JKa7VzM0x2ywBOnhTtXGq2IsZyNPzT9KnQA/ID84F9yiMS8e3obu0g==
+
+"@expo-google-fonts/oswald@^0.2.3":
+  version "0.2.3"
+  resolved "https://registry.npmjs.org/@expo-google-fonts/oswald/-/oswald-0.2.3.tgz"
+  integrity sha512-LQhPBNx3UuS6Ug4pyyoqYA9KtxW9FlOixGhAUZm9kue/7IufaGPGd/VkXyy2TpdCIzvpRcDTXu+GRPwEKEzUSw==
+
 "@expo/apple-utils@1.0.0":
   version "1.0.0"
   resolved "https://registry.npmjs.org/@expo/apple-utils/-/apple-utils-1.0.0.tgz"
