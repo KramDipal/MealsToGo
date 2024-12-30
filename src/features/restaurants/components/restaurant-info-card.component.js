@@ -3,6 +3,8 @@ import styled from "styled-components/native";
 import { Text, Image, View } from "react-native";
 import { Card } from "react-native-paper";
 import { SvgUri, SvgXml } from "react-native-svg";
+import { Spacer } from "../../../components/spacer/spacer.component";
+
 import star from "../../../../assets/star";
 import open from "../../../../assets/open";
 
@@ -87,13 +89,14 @@ export const RestaurantInfoCard = ({ restaurant = {} }) => {
                   </Text>
                 )}
 
-                <View style={{ paddingLeft: 16 }} />
+              <Spacer position="left" size="large">
+                  {isOpenNow && <SvgXml xml={open} width={20} height={20} />}
+              </Spacer>
 
-                {isOpenNow && <SvgXml xml={open} width={20} height={20} />}
-
-                <View style={{ paddingLeft: 16 }} />
-                
-                <Image style={{ width: 20, height: 20 }} source={{ uri: icon }} />
+              <Spacer position="left" size="large">
+                <Image style={{ width: 15, height: 15 }} source={{ uri: icon }} />
+              </Spacer>
+              
               </SectionEnd>
 
             </Section>
