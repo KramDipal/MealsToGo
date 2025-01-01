@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Searchbar } from "react-native-paper";
 import { StatusBar, SafeAreaView, FlatList} from "react-native";
 import { RestaurantInfoCard } from "../components/restaurant-info-card.component";
 import styled from "styled-components/native";
 import { Spacer } from "../../../components/spacer/spacer.component";
+
+import { RestaurantsContext } from "../../../services/restaurants/restaurants.context";
 
 const SafeArea = styled(SafeAreaView)`
   flex: 1;
@@ -25,33 +27,29 @@ const RestaurantList = styled(FlatList).attrs({
 `;
 
 
-export const RestaurantScreen = () => (
+export const RestaurantScreen = () => {  
+  const { isLoading, error, restaurants } = useContext(RestaurantsContext);
+  console.log(error);
+    return(
 
-       <SafeArea>                
-            <SearchContainer>
-                <Searchbar/>
-             </SearchContainer>
+        <SafeArea>                
+              <SearchContainer>
+                  <Searchbar/>
+              </SearchContainer>
+                <RestaurantList
 
-               <RestaurantList
+                    data={restaurants}
 
-                  data={[
-                    {name: 1}, 
-                    {name: 2}, 
-                    {name: 3}, 
-                    {name: 4}, 
-                    {name: 5}, 
-                    {name: 6}]}
+                    renderItem={({ item }) => (
+                      <Spacer position="bottom" size="large">
+                        <RestaurantInfoCard restaurant={item} />
+                      </Spacer>
+                    )}
 
-                  renderItem={() => (
-                    <Spacer position="bottom" size="large">
-                      <RestaurantInfoCard/>
-                    </Spacer>
-                  )}
+                    keyExtractor={item => item.name}
+                    contentContainerStyle={{padding: 16}}
+                />
+          </SafeArea >
 
-                  keyExtractor={item => item.name}
-                  contentContainerStyle={{padding: 16}}
-              />
-
-        </SafeArea >
-
-);
+  );
+};
