@@ -15,18 +15,26 @@ export const LocationContextProvider = ({ children }) => {
     // console.log(searchKeyword);
     setIsLoading(true);
     setKeyword(searchKeyword);
-    locationRequest(searchKeyword.toLowerCase())
-      .then(locationTransform)
-      .then((result) => {
-        setIsLoading(false);
-        setLocation(result);
-        // console.log(result);
-      })
-      .catch((err) => {
-        setIsLoading(false);
-        setError(err);
-      });
   };
+
+  
+  useEffect (() => {
+    if (!keyword.length) {
+      // don't do anything
+      return;
+    }
+    locationRequest(keyword.toLowerCase())
+    .then(locationTransform)
+    .then((result) => {
+      setIsLoading(false);
+      setLocation(result);
+      console.log(result);
+    })
+    .catch((err) => {
+      setIsLoading(false);
+      setError(err);
+    });
+  },[keyword]);
 
   return (
     <LocationContext.Provider
