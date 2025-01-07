@@ -19,6 +19,8 @@ import { Ionicons } from "@expo/vector-icons";
 import { restaurantsRequest } from "./src/services/restaurants/restaurants.service"
 import { RestaurantsContextProvider } from "./src/services/restaurants/restaurants.context";
 
+import { LocationContextProvider } from "./src/services/location/location.context";
+
 export default function App() {
 
   const [oswaldLoaded] = useOswald({
@@ -57,27 +59,26 @@ export default function App() {
 
     <>
       <ThemeProvider theme={theme}>
-        <RestaurantsContextProvider>
-          <NavigationContainer>
-            <Tab.Navigator 
-                screenOptions={createScreenOptions}
-                tabBarOptions={{
-                  activeTintColor: "tomato",
-                  inactiveTintColor: "gray",
-                }}
-            >
-              
-                <Tab.Screen name="Restaurants" component={RestaurantScreen} />
-                <Tab.Screen name="Map" component={MapScreen} />
-                <Tab.Screen name="Settings" component={SettingsScreen} 
-                />
+      <LocationContextProvider>
+          <RestaurantsContextProvider>
+            <NavigationContainer>
+              <Tab.Navigator 
+                  screenOptions={createScreenOptions}
+                  tabBarOptions={{
+                    activeTintColor: "tomato",
+                    inactiveTintColor: "gray",
+                  }}
+              >
+                
+                  <Tab.Screen name="Restaurants" component={RestaurantScreen} />
+                  <Tab.Screen name="Map" component={MapScreen} />
+                  <Tab.Screen name="Settings" component={SettingsScreen} 
+                  />
 
-            </Tab.Navigator>
-          </NavigationContainer>
-        </RestaurantsContextProvider>
-
-
-
+              </Tab.Navigator>
+            </NavigationContainer>
+          </RestaurantsContextProvider>
+        </LocationContextProvider>
       </ThemeProvider>
         <ExpoStatusBar style="auto" />
     </>

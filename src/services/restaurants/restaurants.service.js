@@ -20,6 +20,15 @@ export const restaurantsTransform = ({ results = [] }) => {
             return mockImages[Math.ceil(Math.random() * (mockImages.length - 1))];
           });
 
+          //to the get the correct address/ vicinity
+          //console.log(restaurant.name);
+          
+          //console.log(restaurant.vicinity);
+          restaurant.address = restaurant.vicinity;
+
+          //console.log(restaurant.rating);
+          restaurant.rating = restaurant.rating;
+
       return {
         ...restaurant,
         isOpenNow: restaurant.opening_hours && restaurant.opening_hours.open_now,
