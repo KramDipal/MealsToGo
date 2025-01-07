@@ -48,7 +48,7 @@ export const RestaurantScreen = () => {
 
 
   const navigation = useNavigation();
-  console.log('navigation:', navigation);
+  // console.log('navigation:', navigation);
     return(
 
         <SafeArea>                
