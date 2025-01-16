@@ -8,7 +8,7 @@ import { RestaurantsContext } from "../../../services/restaurants/restaurants.co
 import { MapCallout } from "../components/map-callout.component";
 
 import { Search } from "../components/search.component";
-
+// import { useNavigation } from '@react-navigation/native';
 
 const Map = styled(MapView)`
   height: 100%;
@@ -16,13 +16,10 @@ const Map = styled(MapView)`
 `;
 
 
-export const MapScreen = () => {
+export const MapScreen = ( {navigation} ) => {
     const { location } = useContext(LocationContext);
-    const { restaurants = [] } = useContext(RestaurantsContext);
-
- 
-    const [latDelta, setLatDelta] = useState(0);
-  
+    const { restaurants = [] } = useContext(RestaurantsContext); 
+    const [latDelta, setLatDelta] = useState(0);  
     const { lat, lng, viewport } = location;
   
     useEffect(() => {
@@ -53,7 +50,10 @@ export const MapScreen = () => {
                 longitude: restaurant.geometry.location.lng,
             }}
             >
-              <Callout>
+              <Callout onPress={() =>
+                  navigation.navigate("RestaurantDetails", {
+                    restaurant,
+                  })}>
                 <MapCallout restaurant={restaurant}/>
               </Callout>
             </Marker>
