@@ -27,8 +27,8 @@ const isAndroid = Platform.OS === "android";
 
   //console.log(isAndroid);
 
-export const CompactRestaurantInfo = ({ restaurant }) => {
-  const Image = isAndroid ? CompactWebview : CompactImage;
+  export const CompactRestaurantInfo = ({ restaurant, isMap }) => {
+    const Image = isAndroid && isMap ? CompactWebview : CompactImage;
 
   // console.log(restaurant.photos[0]);
 

@@ -34,7 +34,7 @@ export const Spacer = ({ position, size, children }) => {
 };
 
 Spacer.defaultProps = {
-  // position: "top",
-  // size: "small",
-  size: '16px',
+  position: "top",
+  size: "small",
+  // size: '16px',
 };
