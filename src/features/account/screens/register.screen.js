@@ -68,7 +68,10 @@ export const RegisterScreen = ({ navigation }) => {
           </Spacer>
         </AccountContainer>
         <Spacer size="large">
-          <AuthButton mode="contained" onPress={() => navigation.goBack()}>
+          <AuthButton
+            icon="keyboard-backspace"
+            mode="contained" 
+            onPress={() => navigation.goBack()}>
             Back
           </AuthButton>
         </Spacer>
