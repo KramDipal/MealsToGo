@@ -23,6 +23,7 @@
     "camelize": "^1.0.1",
     "eslint-plugin-react": "^7.37.3",
     "expo": "^52.0.23",
+    "expo-camera": "~16.0.17",
     "expo-cli": "^6.3.10",
     "expo-font": "~13.0.2",
     "expo-status-bar": "~2.0.0",

@@ -5902,6 +5902,13 @@ expo-asset@~11.0.1:
     invariant "^2.2.4"
     md5-file "^3.2.3"
 
+expo-camera@~16.0.17:
+  version "16.0.17"
+  resolved "https://registry.npmjs.org/expo-camera/-/expo-camera-16.0.17.tgz"
+  integrity sha512-V7yBcjQSx65ySKEN8NpCPaFQRL6haGW/hNFvlRuD3+e98sxwQQtcni/EkfTUmZDw81OuURO1c6vTr2oI33WM4Q==
+  dependencies:
+    invariant "^2.2.4"
+
 expo-cli@^6.3.10:
   version "6.3.10"
   resolved "https://registry.npmjs.org/expo-cli/-/expo-cli-6.3.10.tgz"
